@@ -1,0 +1,443 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    background-color: #FFFFFF;
+    color: #000000;
+}
+
+/* Loading Screen */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff; /* Background color */
+    opacity: 1; /* Fully visible */
+    transition: opacity 0.5s ease; /* Transition for fade out */
+    z-index: 9999; /* Ensure it covers all content */
+    display: flex; /* Center the dots */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.loading-dots {
+    display: flex; /* Flex to align dots */
+    justify-content: center; /* Center dots */
+    align-items: flex-end; /* Align dots at the bottom */
+}
+
+.dot {
+    width: 15px; /* Dot size */
+    height: 15px; /* Dot size */
+    margin: 0 5px; /* Space between dots */
+    border-radius: 50%; /* Make it circular */
+    background-color: #877B31; /* Dot color */
+    animation: bounce 0.6s infinite alternate; /* Animation for bouncing effect */
+}
+
+.dot:nth-child(2) {
+    animation-delay: 0.2s; /* Delay for second dot */
+}
+
+.dot:nth-child(3) {
+    animation-delay: 0.4s; /* Delay for third dot */
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0); /* Start position */
+    }
+    100% {
+        transform: translateY(-20px); /* Move up */
+    }
+}
+
+
+/* Header & Navbar */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #343434;
+    padding: 20px;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: flex; /* Align icon */
+    align-items: center; /* Center vertically */
+    color: white; /* Logo color */
+    margin-right: auto; /* Push the logo to the left */
+    text-decoration: none; /* Remove underline from link */
+}
+
+.logo i {
+    font-size: 2rem; /* Size of the icon */
+    transition: 0.3s ease;
+}
+
+.logo i:hover {
+    color: #877B31;
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+}
+
+.hamburger {
+    display: none; 
+    cursor: pointer;
+}
+
+.navbar ul {
+    list-style-type: none;
+    display: flex;
+}
+
+.navbar li {
+    margin-left: 25px; 
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.navbar li a:hover {
+    color: #877B31;
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; 
+    }
+
+    .navbar ul {
+        display: none; 
+        flex-direction: column; 
+        position: absolute; 
+        top: 60px; 
+        right: 0; 
+        background-color: #343434; 
+        width: 200px; 
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar ul.show {
+        display: flex; 
+    }
+
+    .navbar li {
+        margin: 10px 0; 
+    }
+}
+
+/* Home Section */
+.home-section {
+    display: flex;
+    height: calc(80vh - 60px);
+}
+
+.home-container {
+    width: 100%;
+    display: flex;
+}
+
+.home-left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #343434;
+    color: white;
+}
+
+.profile-photo {
+    width: 450px;
+    height: 450px;
+    border-radius: 5px;
+    object-fit: cover;
+    pointer-events: none; /* Prevent right-click menu */
+}
+
+.home-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 40px 20px;
+}
+
+.home-right h1 {
+    font-size: 4rem;
+    margin-bottom: 0;
+    text-align: center;
+    color: #877B31;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 2.3rem;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+#email-me, .download-resume {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 60px;
+    background-color: #343434;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s !important;
+}
+
+#email-me:hover, .download-resume:hover {
+    background-color: #877B31;
+}
+
+.social-icons {
+    margin-top: 80px;
+}
+
+.social-icons a {
+    margin: 0 20px;
+    color: #000000;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: #877B31;
+}
+
+/* About Me Section */
+.about-section {
+    padding: 40px 20px;
+    background-color: #b4b0ab;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-container {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.about-left h2 {
+    font-size: 3.5rem;
+    margin-bottom: 80px;
+    text-align: center;
+}
+
+.about-left p {
+    font-size: 2.0rem;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.resume-container {
+    text-align: center;
+    margin-top: 80px;
+    margin-bottom: 40px;
+}
+
+/* Projects Section */
+.projects-section {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background-color: #343434;
+    color: #000000;
+    text-align: center;
+}
+
+.projects-section h2 {
+    font-size: 3.5rem;
+    margin-bottom: 80px;
+    width: 100%;
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.project-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.project-link {
+    padding: 10px 15px;
+    background-color: #2e2e2e;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.project-link:hover {
+    background-color: #877B31;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 60px 20px;
+    background-color: #000000;
+    text-align: center;
+    color: #ffffff;
+}
+
+.contact-section h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-details {
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.contact-details h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.contact-details p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.contact-details a {
+    text-decoration: none;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.contact-details a:hover {
+    color: #877B31;
+}
+
+.social-icons1 {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icons1 a {
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.social-icons1 a:hover {
+    color: #877B31;
+}
+
+/* Footer */
+.footer-section {
+    background-color: #343434;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Go Top Button */
+.go-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #343434;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    display: none; 
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    font-size: 30px;
+    text-align: center;
+    line-height: 50px;
+    transition: 0.3s ease;
+}
+
+.go-top-btn:hover {
+    background-color: #877B31;
+}
