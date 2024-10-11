@@ -16,14 +16,20 @@ window.addEventListener('load', function() {
 
 // Hamburger menu toggle
 const hamburger = document.getElementById('hamburger');
-if (hamburger) {
-    hamburger.addEventListener('click', function() {
-        const navLinks = document.getElementById('nav-links');
-        if (navLinks) {
-            navLinks.classList.toggle('show'); // Toggle the "show" class on the nav links
-        }
+const navLinks = document.getElementById('nav-links');
+const links = document.querySelectorAll('#nav-links li a'); // Select all the links
+
+// Toggle menu when hamburger is clicked
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
+// Hide menu when a link is clicked
+links.forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
     });
-}
+});
 
 // Smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {

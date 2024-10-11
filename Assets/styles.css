@@ -133,6 +133,38 @@ header {
     color: white;
 }
 
+/* Mobile View */
+@media (max-width: 768px) {
+    #nav-links {
+        display: none; /* Hide nav links on mobile */
+        flex-direction: column;
+        background-color: #343434;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px 0;
+        z-index: 999; /* Ensure it stays above other elements */
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger menu on mobile */
+    }
+
+    #nav-links.active {
+        display: flex; /* Show links when the hamburger is clicked */
+    }
+
+    #nav-links li {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .navbar ul li a {
+        color: #ffffff; /* Ensure text color is visible */
+    }
+}
+
 /* Home Section */
 .home-section {
     display: flex;
