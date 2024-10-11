@@ -163,12 +163,16 @@ header {
     .navbar ul li a {
         color: #ffffff; /* Ensure text color is visible */
     }
+
+    header {
+        padding: 0;
+    }
 }
 
 /* Home Section */
 .home-section {
     display: flex;
-    height: calc(80vh - 60px);
+    height: calc(100vh - 60px);
     flex-direction: row;
 }
 
@@ -257,6 +261,7 @@ header {
     .home-section {
         height: auto; /* Allow content to adjust naturally */
         flex-direction: column; /* Stack content vertically */
+        margin-top: 90px;
     }
 
     .home-container {
@@ -284,6 +289,8 @@ header {
 @media (max-width: 768px) {
     .home-left {
         padding: 15px;
+        padding-bottom: 50px;
+        padding-top: 20px;
     }
 
     .home-right {
@@ -466,7 +473,8 @@ header {
 
 .projects-section h2 {
     font-size: 3.5rem;
-    margin-bottom: 50px;
+    margin-bottom: 60px;
+    margin-top: 60px;
     color: white;
     width: 100%;
 }
@@ -475,18 +483,18 @@ header {
 .projects-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible grid layout */
-    gap: 20px;
+    gap: 30px;
     max-width: 1200px;
     width: 100%;
-    margin: 0 auto;
     padding: 0 20px;
+    margin-bottom: 60px;
 }
 
 /* Individual Project Card */
 .project-card {
     background-color: #fff;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     display: flex;
@@ -579,6 +587,11 @@ header {
 
     .projects-section {
         padding: 40px 10px; /* Reduce padding on very small screens */
+    }
+
+    .projects-section h2 {
+        font-size: 2rem;
+        margin-bottom: 30px;
     }
 
     .project-card {
