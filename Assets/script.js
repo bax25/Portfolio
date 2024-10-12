@@ -19,29 +19,26 @@ const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('nav-links');
 const links = document.querySelectorAll('#nav-links li a'); // Select all the links
 
-// Toggle menu when hamburger is clicked
+// Toggle the mobile menu when the hamburger is clicked
 hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
 });
 
-// Hide menu when a link is clicked
-links.forEach(link => {
-    link.addEventListener('click', () => {
+// Close the menu when clicking outside of it
+document.addEventListener('click', (event) => {
+    const isClickInsideNav = navLinks.contains(event.target);
+    const isClickInsideHamburger = hamburger.contains(event.target);
+
+    if (!isClickInsideNav && !isClickInsideHamburger) {
         navLinks.classList.remove('active');
-    });
+    }
 });
 
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-    });
+// Optionally, close the menu when a link is clicked
+navLinks.addEventListener('click', (event) => {
+    if (event.target.tagName === 'A') {
+        navLinks.classList.remove('active');
+    }
 });
 
 // "Go to Top" button functionality

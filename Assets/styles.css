@@ -138,15 +138,20 @@ header {
 /* Mobile View */
 @media (max-width: 768px) {
     #nav-links {
-        display: none; /* Hide nav links on mobile */
+        display: flex; /* Use flex display so we can transition opacity */
         flex-direction: column;
         background-color: #000000;
         position: absolute;
         top: 60px;
         left: 0;
         width: 100%;
-        padding: 10px 0;
-        z-index: 999; /* Ensure it stays above other elements */
+        padding: 0; /* Remove padding to avoid jumpy transition */
+        z-index: 999;
+        overflow: hidden;
+        max-height: 0; /* Set initial max-height to 0 */
+        opacity: 0; /* Initially invisible */
+        visibility: hidden; /* Use visibility for transition */
+        transition: max-height 0.5s ease, opacity 0.5s ease, visibility 0.5s ease; /* Add transition */
     }
 
     .hamburger {
@@ -155,12 +160,15 @@ header {
 
     #nav-links.active {
         margin-top: 10px;
-        display: flex; /* Show links when the hamburger is clicked */
+        max-height: 300px; /* Smooth expand effect */
+        opacity: 1; /* Fade in effect */
+        visibility: visible; /* Make it visible when active */
     }
 
     #nav-links li {
         text-align: center;
         margin: 10px 0;
+        padding: 10px 0;
     }
 
     .navbar ul li a {
