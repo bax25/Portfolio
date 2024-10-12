@@ -273,6 +273,7 @@ header {
         height: auto; /* Allow content to adjust naturally */
         flex-direction: column; /* Stack content vertically */
         margin-top: 70px;
+        
     }
 
     .home-container {
@@ -362,7 +363,7 @@ header {
     }
 }
 
-/* Disable hover effects for touch devices (mobile) */
+/* Disable hover effects for touch devices (mobile) *//*
 @media (any-hover: none) {
     .logo i:hover,
     .navbar ul li a:hover,
@@ -376,9 +377,9 @@ header {
     .go-top-btn:hover {
         color: #ffffff; /* Same as the default color to negate the hover effect */
     }
-}
+}*/
 
-/* Visual feedback on tap (mobile) */
+/* Visual feedback on tap (mobile) *//*
     .logo i:active,
     .navbar ul li a:active,
     #email-me:active, 
@@ -390,8 +391,7 @@ header {
     .social-icons1 a:active,
     .go-top-btn:active {
     color: #877B31;
-}
-
+} */
 
 /* About Me Section */
 .about-section {
