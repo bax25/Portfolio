@@ -236,7 +236,7 @@ header {
     border-radius: 3px;
     text-decoration: none;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease !important;
 }
 
 #email-me:hover, .download-resume:hover {
@@ -352,6 +352,36 @@ header {
         max-width: 250px;
         height: 250px;
     }
+}
+
+/* Disable hover effects for touch devices (mobile) */
+@media (any-hover: none) {
+    .logo i:hover,
+    .navbar ul li a:hover,
+    #email-me:hover, 
+    .download-resume:hover,
+    .social-icons a:hover,
+    .resume-container .download-resume:hover,
+    .project-link:hover,
+    .contact-details a:hover,
+    .social-icons1 a:hover,
+    .go-top-btn:hover {
+        color: #ffffff; /* Same as the default color to negate the hover effect */
+    }
+}
+
+/* Visual feedback on tap (mobile) */
+    .logo i:active,
+    .navbar ul li a:active,
+    #email-me:active, 
+    .download-resume:active,
+    .social-icons a:active,
+    .resume-container .download-resume:active,
+    .project-link:active,
+    .contact-details a:active,
+    .social-icons1 a:active,
+    .go-top-btn:active {
+    color: #877B31;
 }
 
 
