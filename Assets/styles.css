@@ -66,9 +66,8 @@ header {
     top: 0;
     width: 100%;
     background-color: #343434;
-    padding: 20px;
+    padding: 0px;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
@@ -94,12 +93,15 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #343434;
+    padding-right: 25px;
+    padding-left: 25px;
+    background-color: #000000;
     color: white;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Navbar Links */
@@ -138,7 +140,7 @@ header {
     #nav-links {
         display: none; /* Hide nav links on mobile */
         flex-direction: column;
-        background-color: #343434;
+        background-color: #000000;
         position: absolute;
         top: 60px;
         left: 0;
@@ -152,6 +154,7 @@ header {
     }
 
     #nav-links.active {
+        margin-top: 10px;
         display: flex; /* Show links when the hamburger is clicked */
     }
 
@@ -187,7 +190,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 40px 20px;
 }
 
 .home-left {
@@ -197,8 +200,8 @@ header {
 
 .profile-photo {
     width: 100%;
-    max-width: 450px;
-    height: auto;
+    max-width: 400px;
+    height: 400px;
     border-radius: 5px;
     object-fit: cover;
     pointer-events: none; /* Prevent right-click menu */
@@ -261,7 +264,7 @@ header {
     .home-section {
         height: auto; /* Allow content to adjust naturally */
         flex-direction: column; /* Stack content vertically */
-        margin-top: 90px;
+        margin-top: 70px;
     }
 
     .home-container {
@@ -269,7 +272,7 @@ header {
     }
 
     .home-left {
-        padding: 20px;
+        padding: 40px;
     }
 
     .home-right h1 {
@@ -289,16 +292,17 @@ header {
 @media (max-width: 768px) {
     .home-left {
         padding: 15px;
-        padding-bottom: 50px;
-        padding-top: 20px;
+        padding-bottom: 40px;
+        padding-top: 40px;
     }
 
     .home-right {
-        padding: 20px;
+        padding: 25px;
     }
 
     .profile-photo {
         max-width: 350px;
+        height: 350px;
     }
 
     .home-right h1 {
@@ -325,6 +329,11 @@ header {
         font-size: 2rem;
     }
 
+    .home-left {
+        padding: 40px 20px;
+        margin-top: 20px;
+    }
+
     .subtitle {
         font-size: 1.3rem;
     }
@@ -341,6 +350,7 @@ header {
 
     .profile-photo {
         max-width: 250px;
+        height: 250px;
     }
 }
 
@@ -566,6 +576,10 @@ header {
         gap: 15px; /* Adjust gap */
     }
 
+    .projects-section h2 {
+        font-size: 2.5rem;
+    }
+
     .project-card {
         padding: 15px; /* Reduce padding inside project cards */
     }
@@ -663,6 +677,67 @@ header {
 
 .social-icons1 a:hover {
     color: #877B31;
+}
+
+
+/* Responsive Design */
+
+@media (max-width: 992px) {
+    .contact-section h2 {
+        font-size: 3rem; /* Reduce heading size for medium screens */
+        margin-bottom: 40px;
+    }
+
+    .contact-details h3 {
+        font-size: 1.5rem; /* Adjust project title font size */
+    }
+
+    .contact-details p {
+        font-size: 1rem; /* Adjust description font size */
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .contact-section h2 {
+        font-size: 2.5rem;
+    }
+
+    .contact-details h3 {
+        font-size: 1.8rem;
+    }
+
+    .contact-details p {
+        font-size: 1rem;
+    }
+
+    .social-icons1 {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .contact-section {
+        padding: 40px 15px;
+    }
+
+    .contact-section h2 {
+        font-size: 2rem;
+    }
+
+    .contact-details h3 {
+        font-size: 1.5rem;
+    }
+
+    .contact-details p {
+        font-size: 0.9rem;
+    }
+
+    .social-icons1 {
+        margin-top: 30px;
+        gap: 20px;
+    }
 }
 
 /* Footer */
