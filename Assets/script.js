@@ -1,23 +1,24 @@
 // Loading screen functionality
 window.addEventListener('load', function() {
     const loadingScreen = document.getElementById('loading-screen');
+    const fadeOutDuration = 500; // Configurable fade-out duration in milliseconds
+    const delayBeforeFade = 500; // Configurable delay before starting the fade out
+
     if (loadingScreen) {
-        // Delay for 2 seconds before starting the fade out
+        // Delay before starting the fade out
         setTimeout(() => {
             // Fade out the loading screen
             loadingScreen.style.opacity = '0'; // Start fading out
             setTimeout(() => {
                 loadingScreen.style.display = 'none'; // Hide it after fade out
-            }, 500); // Match this with the CSS transition duration
-        }, 500); // Delay time in milliseconds
+            }, fadeOutDuration); // Match this with the CSS transition duration
+        }, delayBeforeFade);
     }
 });
-
 
 // Hamburger menu toggle
 const hamburger = document.getElementById('hamburger');
 const navLinks = document.getElementById('nav-links');
-const links = document.querySelectorAll('#nav-links li a'); // Select all the links
 
 // Toggle the mobile menu when the hamburger is clicked
 hamburger.addEventListener('click', () => {
@@ -34,7 +35,7 @@ document.addEventListener('click', (event) => {
     }
 });
 
-// Optionally, close the menu when a link is clicked
+// Close the menu when a link is clicked
 navLinks.addEventListener('click', (event) => {
     if (event.target.tagName === 'A') {
         navLinks.classList.remove('active');
@@ -46,7 +47,7 @@ const goTopBtn = document.getElementById("goTopBtn");
 
 if (goTopBtn) {
     // Show the button when the user scrolls down 200px from the top of the document
-    window.onscroll = function() { scrollFunction(); };
+    window.addEventListener('scroll', debounce(scrollFunction, 100));
 
     function scrollFunction() {
         if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
@@ -63,4 +64,15 @@ if (goTopBtn) {
 
     // Scroll to the top when the button is clicked
     goTopBtn.addEventListener("click", scrollToTop);
+}
+
+// Debounce function to improve performance on scroll events
+function debounce(func, delay) {
+    let debounceTimer;
+    return function() {
+        const context = this;
+        const args = arguments;
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => func.apply(context, args), delay);
+    };
 }

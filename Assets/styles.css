@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -138,32 +139,36 @@ header {
 /* Mobile View */
 @media (max-width: 768px) {
     #nav-links {
-        display: flex; /* Use flex display so we can transition opacity */
+        display: flex; /* Use flex display for vertical layout */
         flex-direction: column;
-        background-color: #000000;
+        background-color: #000000; /* Background color of the menu */
         position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
+        top: 60px; /* Positioning from the top */
+        left: 0; /* Align to the left */
+        width: 100%; /* Full width of the container */
         padding: 0; /* Remove padding to avoid jumpy transition */
-        z-index: 999;
-        overflow: hidden;
-        max-height: 0; /* Set initial max-height to 0 */
+        z-index: 999; /* Ensure it is above other elements */
+        
+        /* Initial state for transitions */
         opacity: 0; /* Initially invisible */
-        visibility: hidden; /* Use visibility for transition */
-        transition: max-height 0.5s ease, opacity 0.5s ease, visibility 0.5s ease; /* Add transition */
+        visibility: hidden; /* Use visibility for smoother transitions */
+        transform: translateY(-20px); /* Start slightly above */
+        transition: opacity 0.4s ease, transform 0.4s ease; /* Smooth transition for opacity and position */
+        pointer-events: none; /* Disable pointer events when hidden */
     }
-
+    
     .hamburger {
         display: block; /* Show hamburger menu on mobile */
     }
-
+    
     #nav-links.active {
         margin-top: 10px;
-        max-height: 300px; /* Smooth expand effect */
         opacity: 1; /* Fade in effect */
         visibility: visible; /* Make it visible when active */
+        transform: translateY(0); /* Bring it back to its normal position */
+        pointer-events: all; /* Enable pointer events */
     }
+    
 
     #nav-links li {
         text-align: center;
