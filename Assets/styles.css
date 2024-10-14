@@ -277,8 +277,7 @@ header {
     .home-section {
         height: auto; /* Allow content to adjust naturally */
         flex-direction: column; /* Stack content vertically */
-        margin-top: 70px;
-        
+        padding-top: 90px;
     }
 
     .home-container {
@@ -339,6 +338,11 @@ header {
 }
 
 @media (max-width: 480px) {
+
+    .home-section {
+        padding-top: 70px;
+        
+    }
     .home-right h1 {
         font-size: 2rem;
     }
