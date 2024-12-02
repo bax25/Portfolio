@@ -820,3 +820,214 @@ header {
 .go-top-btn:hover {
     background-color: #877B31;
 }
+
+.blog-intro {
+    text-align: center;
+    margin: 20px 0;
+    padding: 70px;
+}
+
+.blog-intro h1 {
+    font-size: 2.5rem;
+    padding: 20px;
+}
+
+.blog-intro p {
+    font-size: 1.5rem;
+    padding: 15px;
+}
+
+.blog-posts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.blog-posts .post {
+    border-bottom: 1px solid #ddd;
+    padding: 20px;
+}
+
+.blog-posts .post h2 {
+    font-size: 1.5rem;
+}
+
+.blog-posts .post p {
+    font-size: 1rem;
+}
+
+.blog-posts .post a {
+    color: #877B31;
+    text-decoration: none;
+}
+
+
+/* General Page Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #b4b0ab;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin: 0 10px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    transition: background 0.3s ease;
+}
+
+header nav ul li a:hover, .active {
+    border-radius: 5px;
+}
+
+/* Blog Post Section */
+.blog-post-section {
+    padding: 100px 0 40px; /* Ensure padding for fixed header */
+    background-color: #b4b0ab;
+}
+
+.blog-post-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.blog-post-section h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.blog-post-section p {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Code Block Styling */
+pre {
+    background-color: #272822;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 0.95em;
+    margin-bottom: 20px;
+}
+
+code {
+    font-family: Consolas, 'Courier New', Courier, monospace;
+    white-space: pre-wrap;  /* Wraps text within the code block */
+    word-wrap: break-word;  /* Breaks long words if necessary */
+}
+
+/* List Styling */
+ul {
+    margin-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+/* Image Styling */
+.blog-post-section img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .blog-post-section h1 {
+        font-size: 2em;
+    }
+
+    .blog-post-section h3 {
+        font-size: 1.5em;
+    }
+
+    pre {
+        font-size: 0.9em;
+    }
+}
+
+.back-to-blogs-button {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 40px;
+    background-color: #343434;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease !important;
+}
+
+.back-to-blogs-button:hover {
+    background-color: #877B31;
+}
+
+.container1 {
+    min-height: calc(100vh - 66px); /* Full height of the viewport */
+}

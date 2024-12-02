@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Face Mask Detection</title>
+    <link rel="stylesheet" href="Assets/styles.css"> <!-- Same stylesheet as your main website -->
+    <!-- Include Google Fonts for Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Include Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+    <div id="loading-screen">
+        <div class="loading-dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+    <!-- Header / Navbar -->
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo"> <!-- Logo linked to home -->
+                <i class="fas fa-home"></i> <!-- Icon only -->
+            </a>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i> <!-- Font Awesome icon for the hamburger menu -->
+            </div>
+            <ul id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About Me</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="blog.html">Blogs</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Blog Post Section -->
+    <section class="blog-post-section">
+        <div class="container">
+            <h1>Building a Face Mask Detection System with Deep Learning and OpenCV</h1>
+    
+            <h2>Introduction</h2>
+            <p>In response to the COVID-19 pandemic, face masks have become essential in public spaces to reduce virus transmission. Technology has taken steps to help monitor and enforce mask usage, and one practical solution is Face Mask Detection. This blog walks through the development of a face mask detection system using deep learning and OpenCV. We'll use a Convolutional Neural Network (CNN) to detect whether people are wearing masks or not.</p>
+    
+            <h2>Dataset Overview</h2>
+            <p>For our project, we used the Face Mask Detection Dataset which contains images categorized into two classes: <strong>WithMask</strong> and <strong>WithoutMask</strong>. These images are divided into training, validation, and test sets to train and evaluate our model. Each image is resized to 128x128 pixels for consistent input size to the neural network.</p>
+    
+            <h2>Loading and Preprocessing the Data</h2>
+            <p>To start with, we loaded the images using OpenCV and applied some basic preprocessing:</p>
+            <ul>
+                <li>Resizing: Each image is resized to 128x128 pixels.</li>
+                <li>Normalization: We normalized the pixel values to the range [0, 1] for faster convergence during training.</li>
+            </ul>
+            <p>Here's the code to load and preprocess the dataset:</p>
+    
+            <pre><code class="language-python">
+    def load_images_labels(data_path, folder):
+        images = []
+        labels = []
+        folder_path = os.path.join(data_path, folder)
+    
+        for label in ['WithMask', 'WithoutMask']:
+            label_folder_path = os.path.join(folder_path, label)
+            for img_file in os.listdir(label_folder_path):
+                img_path = os.path.join(label_folder_path, img_file)
+                img = cv2.imread(img_path)
+                img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+                img = cv2.resize(img, (128, 128)) / 255.0
+                images.append(img)
+                labels.append(0 if label == 'WithMask' else 1)
+        
+        return np.array(images), np.array(labels)
+            </code></pre>
+    
+            <h2>Building the CNN Model</h2>
+            <p>We built a CNN using TensorFlow and Keras to classify images into the <strong>WithMask</strong> or <strong>WithoutMask</strong> category. Our model consists of multiple layers:</p>
+            <ul>
+                <li>Convolutional Layers: Extract features from the images.</li>
+                <li>Batch Normalization: Normalize activations during training to improve convergence.</li>
+                <li>Pooling Layers: Reduce the dimensionality of feature maps, making the model computationally efficient.</li>
+                <li>Dense Layers: Perform final classification.</li>
+                <li>Dropout Layer: Helps in preventing overfitting.</li>
+            </ul>
+    
+            <p>Here’s the model architecture:</p>
+            <pre><code class="language-python">
+    model = Sequential([
+        Conv2D(32, (3, 3), activation='relu', input_shape=(128, 128, 3)),
+        BatchNormalization(),
+        MaxPooling2D(2, 2),
+    
+        Conv2D(32, (3, 3), activation='relu'),
+        BatchNormalization(),
+        MaxPooling2D(2, 2),
+    
+        Conv2D(64, (3, 3), activation='relu'),
+        BatchNormalization(),
+        MaxPooling2D(2, 2),
+    
+        Flatten(),
+        Dense(128, activation='relu'),
+        Dropout(0.5),
+        Dense(1, activation='sigmoid')
+    ])
+            </code></pre>
+    
+            <p>The model was compiled using the Adam optimizer and binary cross-entropy loss function, which is ideal for binary classification tasks. We also applied early stopping to prevent overfitting.</p>
+    
+            <h2>Training the Model</h2>
+            <p>We trained the model on the training dataset and validated it on a separate validation set. The training process took about 50 epochs, with early stopping enabled to halt the training if the validation loss stopped improving for 5 consecutive epochs.</p>
+    
+            <pre><code class="language-python">
+    early_stopping = EarlyStopping(monitor='val_loss', patience=5, restore_best_weights=True)
+    
+    history = model.fit(train_images, train_labels,
+                        validation_data=(val_images, val_labels),
+                        batch_size=32,
+                        epochs=50,
+                        callbacks=[early_stopping])
+            </code></pre>
+    
+            <h2>Model Evaluation</h2>
+            <p>After training, the model was evaluated on a separate test set, achieving an accuracy of around 99%, showing that it could successfully differentiate between masked and unmasked faces.</p>
+    
+            <pre><code class="language-python">
+    test_loss, test_accuracy = model.evaluate(test_images, test_labels)
+    print(f'Test accuracy: {test_accuracy * 100:.2f}%')
+            </code></pre>
+    
+            <p>We also generated a confusion matrix and classification report to better understand the model’s performance:</p>
+    
+            <pre><code class="language-python">
+    cm = confusion_matrix(test_labels, pred_labels)
+    plt.figure(figsize=(8, 6))
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Reds', xticklabels=['Without Mask', 'With Mask'], yticklabels=['Without Mask', 'With Mask'])
+    plt.xlabel('Predicted Labels')
+    plt.ylabel('True Labels')
+    plt.title('Confusion Matrix')
+    plt.show()
+    
+    print(classification_report(test_labels, pred_labels, target_names=['Without Mask', 'With Mask']))
+            </code></pre>
+    
+            <h2>Real-Time Face Mask Detection</h2>
+            <p>In the final step, we integrated real-time face detection using OpenCV's Haar Cascade model. This allowed us to detect faces in a live video feed, crop them, and pass them through the trained CNN model to classify whether the person is wearing a mask or not.</p>
+    
+            <pre><code class="language-python">
+    face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+    
+    def detect_and_crop_faces(img):
+        gray_img = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+        faces = face_cascade.detectMultiScale(gray_img, scaleFactor=1.1, minNeighbors=5, minSize=(50, 50))
+    
+        face_crops = []
+        for (x, y, w, h) in faces:
+            face_crop = img[y:y+h, x:x+w]
+            face_crops.append(face_crop)
+        
+        return face_crops
+            </code></pre>
+    
+            <p>When detecting faces, each detected face was passed through the CNN to predict whether the individual was wearing a mask. The model outputs the classification along with a confidence score.</p>
+    
+            <h2>Conclusion</h2>
+            <p>This face mask detection system serves as a practical application of deep learning and computer vision. It shows how models can help in public health by monitoring mask compliance in real-time. The system can be further improved with more data and the use of more advanced face detection techniques.</p>
+            <p>The entire project showcased how to use CNNs for image classification and how to integrate them with OpenCV for face detection in a real-world application.</p>
+            <p>Let me know your thoughts or if you’d like to implement further features, such as notifying authorities when someone is not wearing a mask or adding real-time alerts!</p>
+            
+            <a href="blog.html" class="back-to-blogs-button">Back to Blogs</a>
+
+        </div>
+    </section>
+    
+    <button onclick="scrollToTop()" id="goTopBtn" class="go-top-btn" title="Go to top">
+        &#8679;
+    </button>
+    
+        <footer class="footer-section">
+            <div class="footer-container">
+                <p>&copy; 2024 Bala Vignesh C S. All rights reserved.</p>
+            </div>
+        </footer>
+        
+        <script src="Assets/script.js"></script>
+    
+        <!-- Include AOS library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+    </body>
+    </html>

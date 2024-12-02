@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Assets/styles.css"> <!-- Same stylesheet as your main website -->
+    <!-- Include Google Fonts for Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Include Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>Blogs</title>
+</head>
+<body>
+
+    <div id="loading-screen">
+        <div class="loading-dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo"> <!-- Logo linked to home -->
+                <i class="fas fa-home"></i> <!-- Icon only -->
+            </a>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i> <!-- Font Awesome icon for the hamburger menu -->
+            </div>
+            <ul id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about">About Me</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="blog.html">Blogs</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container1">
+        <section class="blog-intro">
+            <h1>Blogs</h1>
+            <p>Welcome to my blog! Here you'll find the latest updates and articles.</p>
+        </section>
+
+        <section class="blog-posts">
+            <article class="post">
+                <h2>Face Mask Detection Using Deep Learning</h2>
+                <p>10-10-2024</p>
+                <p>In this blog, I will discuss how we built a Face Mask Detection system using Deep Learning and OpenCV..... <a href="post1.html">Read more</a></p>
+            </article>
+
+            <article class="post">
+                <h2>Post Title 2</h2>
+                <p>Date of the post</p>
+                <p>A short excerpt of the post... <a href="#">Read more</a></p>
+            </article>
+            <!-- Add more blog posts as needed -->
+        </section>
+    </main>
+
+     <!-- Go to Top Button -->
+<button onclick="scrollToTop()" id="goTopBtn" class="go-top-btn" title="Go to top">
+    &#8679;
+</button>
+
+    <footer class="footer-section">
+        <div class="footer-container">
+            <p>&copy; 2024 Bala Vignesh C S. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="Assets/script.js"></script>
+
+    <!-- Include AOS library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.1/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>
