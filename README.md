@@ -1,6 +1,6 @@
 # Machine Learning Portfolio
 
-Welcome to my portfolio! This repository contains a collection of projects showcasing my skills in Natural Language Processing and Computer Vision.
+Welcome to my portfolio! This repository contains a collection of projects.
 
 ---
 
