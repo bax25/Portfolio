@@ -1,2 +1,9 @@
 # Dependencies
 /node_modules
+package-lock.json
+
+# VSCode
+.vscode/
+
+# Build artifacts
+audit_summary.md
