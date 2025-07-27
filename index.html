@@ -6,7 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Personal Website">
     <title>Bala Vignesh C S | Personal Website</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#4F46E5',      // Indigo
+                        'secondary': '#38BDF8',    // Sky Blue
+                        'light-bg': '#FFFFFF',     // White
+                        'dark-bg': '#111827',      // Cool Dark Grey
+                        'dark-text': '#1F2937',    // Very Dark Grey
+                        'light-text': '#F9FAFB',    // Off-White
+                    }
+                }
+            }
+        }
+    </script>
     <!-- Include Google Fonts for Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,67 +42,55 @@
             filter: blur(0);
             transform: translateX(0);
         }
+        .nav-dot.active {
+            background-color: var(--primary-color) !important;
+            transform: scale(1.5);
+        }
+        .dark .nav-dot.active {
+            background-color: var(--secondary-color) !important;
+        }
     </style>
 </head>
 
-<body class="bg-slate-50" style="font-family: 'Inter', sans-serif;">
-    <div id="loading-screen" class="fixed inset-0 bg-white z-50 flex justify-center items-center transition-opacity duration-500">
+<body class="bg-light-bg dark:bg-dark-bg" style="font-family: 'Inter', sans-serif;">
+    <div id="loading-screen" class="fixed inset-0 bg-dark-bg z-50 flex justify-center items-center transition-opacity duration-500">
         <div class="flex justify-center items-end">
-            <div class="w-4 h-4 bg-teal-600 rounded-full mx-1 animate-bounce"></div>
-            <div class="w-4 h-4 bg-teal-600 rounded-full mx-1 animate-bounce" style="animation-delay: 0.2s;"></div>
-            <div class="w-4 h-4 bg-teal-600 rounded-full mx-1 animate-bounce" style="animation-delay: 0.4s;"></div>
+            <div class="w-4 h-4 bg-primary rounded-full mx-1 animate-bounce"></div>
+            <div class="w-4 h-4 bg-primary rounded-full mx-1 animate-bounce" style="animation-delay: 0.2s;"></div>
+            <div class="w-4 h-4 bg-primary rounded-full mx-1 animate-bounce" style="animation-delay: 0.4s;"></div>
         </div>
     </div>
 
-    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-40 shadow-md">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#home" class="text-2xl font-bold text-slate-800 hover:text-teal-600 transition-colors">BV</a>
-            <div class="hidden md:flex space-x-8">
-                <a href="#home" class="text-slate-600 hover:text-teal-600 transition-colors">Home</a>
-                <a href="#about" class="text-slate-600 hover:text-teal-600 transition-colors">About</a>
-                <a href="#skills" class="text-slate-600 hover:text-teal-600 transition-colors">Skills</a>
-                <a href="#projects" class="text-slate-600 hover:text-teal-600 transition-colors">Projects</a>
-                <a href="#contact" class="text-slate-600 hover:text-teal-600 transition-colors">Contact</a>
-            </div>
-            <div class="md:hidden">
-                <button id="hamburger" class="text-slate-800 focus:outline-none">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
-            </div>
-        </nav>
-        <div id="nav-links" class="hidden md:hidden bg-white/80 backdrop-blur-lg">
-            <a href="#home" class="block py-2 px-4 text-sm text-slate-600 hover:bg-teal-50">Home</a>
-            <a href="#about" class="block py-2 px-4 text-sm text-slate-600 hover:bg-teal-50">About</a>
-            <a href="#skills" class="block py-2 px-4 text-sm text-slate-600 hover:bg-teal-50">Skills</a>
-            <a href="#projects" class="block py-2 px-4 text-sm text-slate-600 hover:bg-teal-50">Projects</a>
-            <a href="#contact" class="block py-2 px-4 text-sm text-slate-600 hover:bg-teal-50">Contact</a>
-        </div>
+    <header class="fixed top-0 right-0 p-4 z-50">
+        <button id="theme-toggle" class="text-dark-text dark:text-light-text hover:text-primary transition-colors">
+            <i class="fas fa-sun"></i>
+        </button>
     </header>
 
     <main>
         <!-- Hero Section -->
         <section id="home" class="container mx-auto px-6 py-24 md:py-32 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 lg:w-2/5 text-center md:text-left">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-800 leading-tight">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-dark-text dark:text-light-text leading-tight">
                     Bala Vignesh C S
                 </h1>
-                <p class="mt-4 text-lg md:text-xl text-slate-600">
+                <p class="mt-4 text-lg md:text-xl text-gray-600 dark:text-gray-300">
                     Building Intelligent Systems with Machine Learning
                 </p>
-                <a href="mailto:balavigneshcs@outlook.com" class="mt-8 inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-teal-700 transition-colors shadow-lg">
+                <a href="mailto:balavigneshcs@outlook.com" class="mt-8 inline-block bg-primary text-light-text font-semibold px-8 py-3 rounded-lg hover:bg-secondary transition-colors shadow-lg">
                     Get in Touch
                 </a>
                 <div class="mt-8 flex justify-center md:justify-start space-x-6">
-                    <a href="https://www.instagram.com/balavigneshcs" target="_blank" rel="noopener noreferrer" title="Instagram" class="text-slate-500 hover:text-teal-600 transition-colors">
+                    <a href="https://www.instagram.com/balavigneshcs" target="_blank" rel="noopener noreferrer" title="Instagram" class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
                         <i class="fab fa-instagram fa-2x"></i>
                     </a>
-                    <a href="https://github.com/bax25" target="_blank" rel="noopener noreferrer" title="GitHub" class="text-slate-500 hover:text-teal-600 transition-colors">
+                    <a href="https://github.com/bax25" target="_blank" rel="noopener noreferrer" title="GitHub" class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
                         <i class="fab fa-github fa-2x"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/bala-vigneshcs/" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="text-slate-500 hover:text-teal-600 transition-colors">
+                    <a href="https://www.linkedin.com/in/bala-vigneshcs/" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
                         <i class="fab fa-linkedin fa-2x"></i>
                     </a>
-                    <a href="https://www.facebook.com/balavigneshcs/" target="_blank" rel="noopener noreferrer" title="Facebook" class="text-slate-500 hover:text-teal-600 transition-colors">
+                    <a href="https://www.facebook.com/balavigneshcs/" target="_blank" rel="noopener noreferrer" title="Facebook" class="text-gray-500 dark:text-gray-400 hover:text-primary transition-colors">
                         <i class="fab fa-facebook fa-2x"></i>
                     </a>
                 </div>
@@ -96,11 +101,11 @@
         </section>
 
         <!-- About Section -->
-        <section id="about" class="bg-white py-24 md:py-32">
+        <section id="about" class="bg-light-bg dark:bg-dark-bg text-dark-text dark:text-light-text py-24 md:py-32">
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto text-center">
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">About Me</h2>
-                    <div class="mt-8 text-lg text-slate-600 space-y-6">
+                    <h2 class="text-3xl md:text-4xl font-bold">About Me</h2>
+                    <div class="mt-8 text-lg text-gray-600 dark:text-gray-300 space-y-6">
                         <p>
                             I'm a passionate Machine Learning Engineer dedicated to building intelligent systems that solve complex, real-world problems. My expertise lies in developing robust models and deploying them as scalable solutions.
                         </p>
@@ -108,7 +113,7 @@
                             I thrive on the challenge of turning raw data into actionable insights and am always exploring new algorithms and techniques to stay at the forefront of the field. I'm actively seeking new opportunities to contribute to innovative projects and collaborate with a talented team.
                         </p>
                     </div>
-                    <a href="Assets/Bala_Vignesh.pdf" class="mt-12 inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-teal-700 transition-colors shadow-lg" download>
+                    <a href="Assets/Bala_Vignesh.pdf" class="mt-12 inline-block bg-primary text-light-text font-semibold px-8 py-3 rounded-lg hover:bg-secondary transition-colors shadow-lg" download>
                         Download Resume
                     </a>
                 </div>
@@ -116,119 +121,119 @@
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="py-24 md:py-32 bg-slate-50">
+        <section id="skills" class="py-24 md:py-32 bg-light-bg dark:bg-dark-bg">
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto text-center hidden-animate">
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Core Technologies & Skills</h2>
-                    <p class="mt-4 text-lg text-slate-600">
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-text dark:text-light-text">Core Technologies & Skills</h2>
+                    <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">
                         I have experience with a wide range of technologies for machine learning, data science, and web development.
                     </p>
                 </div>
                 <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                     <div class="p-4 hidden-animate">
-                        <i class="fab fa-python fa-3x text-teal-600"></i>
-                        <h3 class="mt-4 text-xl font-semibold text-slate-700">Python</h3>
+                        <i class="fab fa-python fa-3x text-primary"></i>
+                        <h3 class="mt-4 text-xl font-semibold text-dark-text dark:text-light-text">Python</h3>
                     </div>
                     <div class="p-4 hidden-animate" style="transition-delay: 200ms;">
-                        <i class="fas fa-brain fa-3x text-teal-600"></i>
-                        <h3 class="mt-4 text-xl font-semibold text-slate-700">TensorFlow</h3>
+                        <i class="fas fa-brain fa-3x text-primary"></i>
+                        <h3 class="mt-4 text-xl font-semibold text-dark-text dark:text-light-text">TensorFlow</h3>
                     </div>
                     <div class="p-4 hidden-animate" style="transition-delay: 400ms;">
-                        <i class="fas fa-robot fa-3x text-teal-600"></i>
-                        <h3 class="mt-4 text-xl font-semibold text-slate-700">PyTorch</h3>
+                        <i class="fas fa-robot fa-3x text-primary"></i>
+                        <h3 class="mt-4 text-xl font-semibold text-dark-text dark:text-light-text">PyTorch</h3>
                     </div>
                     <div class="p-4 hidden-animate" style="transition-delay: 600ms;">
-                        <i class="fas fa-database fa-3x text-teal-600"></i>
-                        <h3 class="mt-4 text-xl font-semibold text-slate-700">SQL</h3>
+                        <i class="fas fa-cogs fa-3x text-primary"></i>
+                        <h3 class="mt-4 text-xl font-semibold text-dark-text dark:text-light-text">Scikit-learn</h3>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-24 md:py-32 bg-white">
+        <section id="projects" class="py-24 md:py-32 bg-light-bg dark:bg-dark-bg">
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-800">My Projects</h2>
-                    <p class="mt-4 text-lg text-slate-600">A selection of my work in machine learning and data science.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-dark-text dark:text-light-text">My Projects</h2>
+                    <p class="mt-4 text-lg text-gray-600 dark:text-gray-300">A selection of my work in machine learning and data science.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Project 1 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="bg-light-bg dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
                         <img src="Assets/mnist-digit-recognition.png" alt="MNIST Digit Recognition" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <h3 class="text-xl font-semibold text-slate-800">Digit Recognizer (MNIST)</h3>
-                            <p class="mt-2 text-slate-600">Achieved 99.2% accuracy in handwritten digit classification by developing a custom CNN with Keras and TensorFlow.</p>
+                            <h3 class="text-xl font-semibold text-dark-text dark:text-light-text">Digit Recognizer (MNIST)</h3>
+                            <p class="mt-2 text-gray-600 dark:text-gray-400">Achieved 99.2% accuracy in handwritten digit classification by developing a custom CNN with Keras and TensorFlow.</p>
                             <div class="mt-4">
-                                <span class="inline-block bg-slate-200 rounded-full px-3 py-1 text-sm font-semibold text-slate-700 mr-2 mb-2">Keras</span>
-                                <span class="inline-block bg-slate-200 rounded-full px-3 py-1 text-sm font-semibold text-slate-700 mr-2 mb-2">TensorFlow</span>
+                                <span class="inline-block bg-gray-200 dark:bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 dark:text-gray-300 mr-2 mb-2">Keras</span>
+                                <span class="inline-block bg-gray-200 dark:bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 dark:text-gray-300 mr-2 mb-2">TensorFlow</span>
                             </div>
-                            <a href="https://bax25-mnist-digit-recognizer-app-yfieht.streamlit.app/" target="_blank" class="mt-4 inline-block text-teal-600 font-semibold hover:text-teal-700">View Project &rarr;</a>
+                            <a href="https://bax25-mnist-digit-recognizer-app-yfieht.streamlit.app/" target="_blank" class="mt-4 inline-block text-secondary font-semibold hover:text-primary">View Project &rarr;</a>
                         </div>
                     </div>
                     <!-- Project 2 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="bg-light-bg dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
                         <img src="Assets/traffic-sign-classification.jpg" alt="Traffic Sign Detection" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <h3 class="text-xl font-semibold text-slate-800">Traffic Sign Detection</h3>
-                            <p class="mt-2 text-slate-600">Trained a YOLOv5 model on the German Traffic Sign dataset for real-time object detection, deployed via a Streamlit web app.</p>
+                            <h3 class="text-xl font-semibold text-dark-text dark:text-light-text">Traffic Sign Detection</h3>
+                            <p class="mt-2 text-gray-600 dark:text-gray-400">Trained a YOLOv5 model on the German Traffic Sign dataset for real-time object detection, deployed via a Streamlit web app.</p>
                              <div class="mt-4">
-                                <span class="inline-block bg-slate-200 rounded-full px-3 py-1 text-sm font-semibold text-slate-700 mr-2 mb-2">YOLOv5</span>
-                                <span class="inline-block bg-slate-200 rounded-full px-3 py-1 text-sm font-semibold text-slate-700 mr-2 mb-2">Streamlit</span>
+                                <span class="inline-block bg-gray-200 dark:bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 dark:text-gray-300 mr-2 mb-2">YOLOv5</span>
+                                <span class="inline-block bg-gray-200 dark:bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 dark:text-gray-300 mr-2 mb-2">Streamlit</span>
                             </div>
-                            <a href="#" target="_blank" class="mt-4 inline-block text-teal-600 font-semibold hover:text-teal-700">View Project &rarr;</a>
+                            <a href="#" target="_blank" class="mt-4 inline-block text-secondary font-semibold hover:text-primary">View Project &rarr;</a>
                         </div>
                     </div>
                     <!-- Project 3 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="bg-light-bg dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
                         <img src="Assets/mask-detection.jpg" alt="Face Mask Detection System" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <h3 class="text-xl font-semibold text-slate-800">Face Mask Detection</h3>
-                            <p class="mt-2 text-slate-600">Built a custom CNN with TensorFlow/Keras for face mask detection, using Haar Cascades for initial face localization.</p>
+                            <h3 class="text-xl font-semibold text-dark-text dark:text-light-text">Face Mask Detection</h3>
+                            <p class="mt-2 text-gray-600 dark:text-gray-400">Built a custom CNN with TensorFlow/Keras for face mask detection, using Haar Cascades for initial face localization.</p>
                              <div class="mt-4">
-                                <span class="inline-block bg-slate-200 rounded-full px-3 py-1 text-sm font-semibold text-slate-700 mr-2 mb-2">TensorFlow</span>
-                                <span class="inline-block bg-slate-200 rounded-full px-3 py-1 text-sm font-semibold text-slate-700 mr-2 mb-2">OpenCV</span>
+                                <span class="inline-block bg-gray-200 dark:bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 dark:text-gray-300 mr-2 mb-2">TensorFlow</span>
+                                <span class="inline-block bg-gray-200 dark:bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 dark:text-gray-300 mr-2 mb-2">OpenCV</span>
                             </div>
-                            <a href="https://bax25-face-mask-detection.streamlit.app/" target="_blank" class="mt-4 inline-block text-teal-600 font-semibold hover:text-teal-700">View Project &rarr;</a>
+                            <a href="https://bax25-face-mask-detection.streamlit.app/" target="_blank" class="mt-4 inline-block text-secondary font-semibold hover:text-primary">View Project &rarr;</a>
                         </div>
                     </div>
                     <!-- Project 4 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="bg-light-bg dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
                         <img src="Assets/ner-pipeline.jpg" alt="Named Entity Recognition Pipeline" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <h3 class="text-xl font-semibold text-slate-800">NER for Legal Documents</h3>
-                            <p class="mt-2 text-slate-600">Fine-tuned a spaCy NER model on a custom dataset of legal documents, achieving an F1-score of 0.87 for entity extraction.</p>
+                            <h3 class="text-xl font-semibold text-dark-text dark:text-light-text">NER for Legal Documents</h3>
+                            <p class="mt-2 text-gray-600 dark:text-gray-400">Fine-tuned a spaCy NER model on a custom dataset of legal documents, achieving an F1-score of 0.87 for entity extraction.</p>
                              <div class="mt-4">
-                                <span class="inline-block bg-slate-200 rounded-full px-3 py-1 text-sm font-semibold text-slate-700 mr-2 mb-2">spaCy</span>
-                                <span class="inline-block bg-slate-200 rounded-full px-3 py-1 text-sm font-semibold text-slate-700 mr-2 mb-2">NLP</span>
+                                <span class="inline-block bg-gray-200 dark:bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 dark:text-gray-300 mr-2 mb-2">spaCy</span>
+                                <span class="inline-block bg-gray-200 dark:bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 dark:text-gray-300 mr-2 mb-2">NLP</span>
                             </div>
-                            <a href="#" target="_blank" class="mt-4 inline-block text-teal-600 font-semibold hover:text-teal-700">View Project &rarr;</a>
+                            <a href="#" target="_blank" class="mt-4 inline-block text-secondary font-semibold hover:text-primary">View Project &rarr;</a>
                         </div>
                     </div>
                     <!-- Project 5 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="bg-light-bg dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
                         <img src="Assets/image-caption-generator.png" alt="Image Caption Generator" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <h3 class="text-xl font-semibold text-slate-800">Image Caption Generator</h3>
-                            <p class="mt-2 text-slate-600">Implemented an encoder-decoder model (CNN+RNN) to automatically generate descriptive captions for images.</p>
+                            <h3 class="text-xl font-semibold text-dark-text dark:text-light-text">Image Caption Generator</h3>
+                            <p class="mt-2 text-gray-600 dark:text-gray-400">Implemented an encoder-decoder model (CNN+RNN) to automatically generate descriptive captions for images.</p>
                              <div class="mt-4">
-                                <span class="inline-block bg-slate-200 rounded-full px-3 py-1 text-sm font-semibold text-slate-700 mr-2 mb-2">CNN</span>
-                                <span class="inline-block bg-slate-200 rounded-full px-3 py-1 text-sm font-semibold text-slate-700 mr-2 mb-2">RNN</span>
+                                <span class="inline-block bg-gray-200 dark:bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 dark:text-gray-300 mr-2 mb-2">CNN</span>
+                                <span class="inline-block bg-gray-200 dark:bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 dark:text-gray-300 mr-2 mb-2">RNN</span>
                             </div>
-                            <a href="#" target="_blank" class="mt-4 inline-block text-teal-600 font-semibold hover:text-teal-700">View Project &rarr;</a>
+                            <a href="#" target="_blank" class="mt-4 inline-block text-secondary font-semibold hover:text-primary">View Project &rarr;</a>
                         </div>
                     </div>
                     <!-- Project 6 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="bg-light-bg dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:-translate-y-2 transition-transform duration-300">
                         <img src="Assets/sentiment-analysis.jpg" alt="Sentiment Analysis on Movie Reviews" class="w-full h-48 object-cover">
                         <div class="p-6">
-                            <h3 class="text-xl font-semibold text-slate-800">Sentiment Analysis</h3>
-                            <p class="mt-2 text-slate-600">Fine-tuned a BERT model on the IMDB movie review dataset, achieving 92% accuracy for binary sentiment classification.</p>
+                            <h3 class="text-xl font-semibold text-dark-text dark:text-light-text">Sentiment Analysis</h3>
+                            <p class="mt-2 text-gray-600 dark:text-gray-400">Fine-tuned a BERT model on the IMDB movie review dataset, achieving 92% accuracy for binary sentiment classification.</p>
                              <div class="mt-4">
-                                <span class="inline-block bg-slate-200 rounded-full px-3 py-1 text-sm font-semibold text-slate-700 mr-2 mb-2">BERT</span>
-                                <span class="inline-block bg-slate-200 rounded-full px-3 py-1 text-sm font-semibold text-slate-700 mr-2 mb-2">Hugging Face</span>
+                                <span class="inline-block bg-gray-200 dark:bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 dark:text-gray-300 mr-2 mb-2">BERT</span>
+                                <span class="inline-block bg-gray-200 dark:bg-gray-700 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 dark:text-gray-300 mr-2 mb-2">Hugging Face</span>
                             </div>
-                            <a href="#" target="_blank" class="mt-4 inline-block text-teal-600 font-semibold hover:text-teal-700">View Project &rarr;</a>
+                            <a href="#" target="_blank" class="mt-4 inline-block text-secondary font-semibold hover:text-primary">View Project &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -236,45 +241,69 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="bg-white py-24 md:py-32">
+        <section id="contact" class="bg-light-bg dark:bg-dark-bg py-24 md:py-32">
             <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-800">Get in Touch</h2>
-                <p class="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark-text dark:text-light-text">Get in Touch</h2>
+                <p class="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
                     I'm currently available for freelance work and open to discussing new opportunities. Feel free to reach out!
                 </p>
-                <a href="mailto:balavigneshcs@outlook.com" class="mt-8 inline-block bg-teal-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-teal-700 transition-colors shadow-lg">
+                <a href="mailto:balavigneshcs@outlook.com" class="mt-8 inline-block bg-primary text-light-text font-semibold px-8 py-3 rounded-lg hover:bg-secondary transition-colors shadow-lg">
                     Email Me
                 </a>
             </div>
         </section>
     </main>
 
-    <footer class="bg-slate-800 text-white py-8">
+    <footer class="bg-dark-text dark:bg-dark-bg text-light-text py-8">
         <div class="container mx-auto px-6 text-center">
             <div class="flex justify-center space-x-6 mb-4">
-                <a href="https://www.instagram.com/balavigneshcs" target="_blank" rel="noopener noreferrer" title="Instagram" class="hover:text-teal-400 transition-colors">
+                <a href="https://www.instagram.com/balavigneshcs" target="_blank" rel="noopener noreferrer" title="Instagram" class="hover:text-secondary transition-colors">
                     <i class="fab fa-instagram fa-lg"></i>
                 </a>
-                <a href="https://github.com/bax25" target="_blank" rel="noopener noreferrer" title="GitHub" class="hover:text-teal-400 transition-colors">
+                <a href="https://github.com/bax25" target="_blank" rel="noopener noreferrer" title="GitHub" class="hover:text-secondary transition-colors">
                     <i class="fab fa-github fa-lg"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/bala-vigneshcs/" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="hover:text-teal-400 transition-colors">
+                <a href="https://www.linkedin.com/in/bala-vigneshcs/" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="hover:text-secondary transition-colors">
                     <i class="fab fa-linkedin fa-lg"></i>
                 </a>
-                <a href="https://www.facebook.com/balavigneshcs/" target="_blank" rel="noopener noreferrer" title="Facebook" class="hover:text-teal-400 transition-colors">
+                <a href="https://www.facebook.com/balavigneshcs/" target="_blank" rel="noopener noreferrer" title="Facebook" class="hover:text-secondary transition-colors">
                     <i class="fab fa-facebook fa-lg"></i>
                 </a>
             </div>
-            <p class="text-slate-400">&copy; 2024 Bala Vignesh C S. All rights reserved.</p>
+            <p class="text-gray-400">&copy; 2024 Bala Vignesh C S. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- Go to Top Button -->
-    <button id="goTopBtn" class="fixed bottom-8 right-8 bg-teal-600 text-white w-12 h-12 rounded-full shadow-lg hidden justify-center items-center text-2xl hover:bg-teal-700 transition-colors">
+    <button id="goTopBtn" class="fixed bottom-8 right-8 bg-primary text-light-text w-12 h-12 rounded-full shadow-lg hidden justify-center items-center text-2xl hover:bg-secondary transition-colors">
         &#8679;
     </button>
 
-    <script src="Assets\script.js"></script>
+    <script src="Assets/script.js"></script>
+
+    <!-- Vertical Navigation -->
+    <nav id="vertical-nav" class="hidden md:flex flex-col items-center justify-center fixed top-1/2 right-8 -translate-y-1/2 space-y-6 z-50">
+        <a href="#home" data-section="home" class="nav-item flex items-center group">
+            <span class="nav-label hidden group-hover:block bg-gray-800 text-white text-xs px-2 py-1 rounded-md -translate-x-12">Home</span>
+            <div class="nav-dot w-3 h-3 bg-gray-400 dark:bg-gray-600 rounded-full transition-all duration-300"></div>
+        </a>
+        <a href="#about" data-section="about" class="nav-item flex items-center group">
+            <span class="nav-label hidden group-hover:block bg-gray-800 text-white text-xs px-2 py-1 rounded-md -translate-x-12">About</span>
+            <div class="nav-dot w-3 h-3 bg-gray-400 dark:bg-gray-600 rounded-full transition-all duration-300"></div>
+        </a>
+        <a href="#skills" data-section="skills" class="nav-item flex items-center group">
+            <span class="nav-label hidden group-hover:block bg-gray-800 text-white text-xs px-2 py-1 rounded-md -translate-x-12">Skills</span>
+            <div class="nav-dot w-3 h-3 bg-gray-400 dark:bg-gray-600 rounded-full transition-all duration-300"></div>
+        </a>
+        <a href="#projects" data-section="projects" class="nav-item flex items-center group">
+            <span class="nav-label hidden group-hover:block bg-gray-800 text-white text-xs px-2 py-1 rounded-md -translate-x-12">Projects</span>
+            <div class="nav-dot w-3 h-3 bg-gray-400 dark:bg-gray-600 rounded-full transition-all duration-300"></div>
+        </a>
+        <a href="#contact" data-section="contact" class="nav-item flex items-center group">
+            <span class="nav-label hidden group-hover:block bg-gray-800 text-white text-xs px-2 py-1 rounded-md -translate-x-12">Contact</span>
+            <div class="nav-dot w-3 h-3 bg-gray-400 dark:bg-gray-600 rounded-full transition-all duration-300"></div>
+        </a>
+    </nav>
 </body>
 
 </html>

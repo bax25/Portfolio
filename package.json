@@ -9,7 +9,7 @@
     "tailwindcss": "^4.1.11"
   },
   "scripts": {
-    "build": "node_modules/.bin/tailwindcss -i ./Assets/input.css -o ./Assets/output.css --watch"
+    "build": "npx tailwindcss -i ./Assets/input.css -o ./Assets/output.css --watch"
   },
   "repository": {
     "type": "git",
