@@ -1,0 +1,11 @@
+{
+  // Recommended settings for Tailwind CSS IntelliSense
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  // Prevents linting errors for Tailwind's at-rules
+  "css.lint.unknownAtRules": "ignore"
+}

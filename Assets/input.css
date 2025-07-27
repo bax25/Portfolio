@@ -1,3 +1,81 @@
 @import "tailwindcss";
-@import "tailwindcss/typography";
-@import "tailwindcss/forms";
+
+.hidden-animate {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.hidden-animate.show {
+    opacity: 1;
+}
+
+.group.active .nav-dot {
+    transform: scale(1.25);
+    border-color: #4F46E5;
+}
+
+.group.active .nav-label {
+    opacity: 1;
+    font-weight: 700;
+    color: #4F46E5;
+}
+
+.dark .group.active .nav-label {
+    color: #38BDF8;
+}
+
+.dark .group.active .nav-dot {
+    border-color: #38BDF8;
+}
+
+.mobile-nav-item.active {
+    color: #4F46E5;
+    font-weight: 700;
+}
+
+.dark .mobile-nav-item.active {
+    color: #38BDF8;
+}
+
+.project-card .overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.project-card:hover .overlay {
+  opacity: 1;
+}
+
+.project-card {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.dark .project-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+footer a:hover {
+  transform: scale(1.1);
+}
+
+#desktop-nav-container .nav-item .nav-dot {
+  transition: all 0.3s ease-in-out;
+}
+
+#desktop-nav-container .nav-item:hover .nav-dot {
+  transform: scale(1.5);
+  border-color: #4F46E5;
+}
+
+.dark #desktop-nav-container .nav-item:hover .nav-dot {
+  border-color: #38BDF8;
+}
