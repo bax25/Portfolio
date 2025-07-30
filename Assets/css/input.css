@@ -1,0 +1,283 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Backgrounds */
+  --color-light-bg: #F9FAFB;     /* softer white with a hint of gray */
+  --color-dark-bg: #111827;      /* deep neutral gray-black */
+
+  /* Surfaces */
+  --color-surface-light: #FFFFFF;
+  --color-surface-dark: #1F2937;
+
+  /* Text */
+  --color-txt-primary-light: #111827;  /* darker for readability */
+  --color-txt-primary-dark: #F3F4F6;   /* lighter for dark mode */
+  --color-txt-secondary-light: #4B5563; 
+  --color-txt-secondary-dark: #9CA3AF;
+
+  /* Dividers */
+  --color-divider-light: #E5E7EB;
+  --color-divider-dark: #374151;
+
+  /* Primary (Energetic blue) */
+  --color-primary-light: #2563EB; /* strong blue */
+  --color-primary-dark: #3B82F6;
+  --color-primary-dark-rgb: 59, 130, 246; /* RGB values for #3B82F6 */
+
+  /* Accent / Success (fresh green) */
+  --color-success-light: #059669;
+  --color-success-dark: #10B981;
+
+  /* Warning (vivid amber) */
+  --color-warning-light: #D97706;
+  --color-warning-dark: #F59E0B;
+
+  /* Error (energetic red) */
+  --color-error-light: #DC2626;
+  --color-error-dark: #F87171;
+
+  /* Optional accent for fitness/wellness vibe */
+  --color-accent-light: #F97316; /* bright orange */
+  --color-accent-dark: #FB923C;
+}
+
+
+@layer base {
+  body {
+    @apply bg-light-bg text-txt-primary-light dark:bg-dark-bg dark:text-txt-primary-dark;
+  }
+}
+
+.hidden-animate {
+    opacity: 0;
+    transform: translateY(2rem); /* Start slightly below its final position */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Smooth transition for both */
+}
+
+.hidden-animate.show {
+    opacity: 1;
+    transform: translateY(0); /* Slide to its final position */
+}
+
+.skill-item {
+    /* Initial state for scroll animation, will be overridden by .show */
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.skill-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+.project-card .overlay {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.project-card:hover .overlay {
+  opacity: 1;
+}
+
+.project-card {
+  @apply w-full;
+  transition: box-shadow 0.3s ease-in-out; /* Only transition box-shadow by default */
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Add transform transition on hover */
+}
+
+.dark .project-card:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+  transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+footer a:hover {
+  transform: scale(1.1);
+}
+
+#desktop-nav-container .nav-item .nav-dot {
+  @apply transition-all duration-300;
+}
+
+#desktop-nav-container .nav-item:hover .nav-dot {
+  transform: scale(1.5);
+  border-color: var(--color-accent-light);
+}
+
+.dark #desktop-nav-container .nav-item:hover .nav-dot {
+  border-color: var(--color-accent-dark);
+}
+
+#desktop-nav-container .nav-item.active .nav-dot {
+  @apply bg-[var(--color-primary-light)] scale-125;
+}
+
+.dark #desktop-nav-container .nav-item.active .nav-dot {
+  @apply bg-[var(--color-primary-dark)] scale-125;
+}
+
+/* Custom gradient text for Hero title */
+.hero-gradient-text {
+  background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+
+/* Typing effect for tagline */
+.typing-cursor::after {
+  content: '|';
+  animation: blink-caret .75s step-end infinite;
+  vertical-align: text-bottom; /* Align cursor vertically with text */
+  color: var(--color-primary-light); /* Ensure cursor has a visible color */
+  transition: opacity 0.5s ease-out; /* Smooth transition for fading */
+}
+
+.dark .typing-cursor::after {
+  color: var(--color-primary-dark);
+}
+
+.typing-cursor.fade-out-cursor::after {
+  opacity: 0;
+  animation: none; /* Stop blinking when fading out */
+  transition: opacity 2s ease-out; /* Duration of fade-out animation */
+}
+
+@keyframes blink-caret {
+  from, to { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* CTA Button Gradient */
+.btn-gradient {
+  background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+}
+
+/* Custom shadow for CTA button */
+.btn-shadow-primary:hover {
+  box-shadow: 0 10px 20px rgba(var(--color-primary-dark-rgb), 0.4);
+}
+
+/* Project Card Hover Effect */
+.project-card-hover-effect:hover {
+  transform: scale(1.03);
+  box-shadow: 0 10px 20px rgba(var(--color-primary-dark-rgb), 0.3); /* Using RGB for shadow tint */
+}
+
+/* Profile Image Floating Effect */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.profile-float {
+  animation: float 3s ease-in-out infinite;
+  transition: transform 0.3s ease-out; /* Smooth transition for scale/tilt */
+}
+
+/* Add a class for the tilt effect, to be applied by JS */
+.profile-tilt {
+  transform-style: preserve-3d; /* Enable 3D transformations */
+  transition: transform 0.1s ease-out; /* Faster transition for mouse movement */
+}
+
+
+
+/* Go To Top Button Hover Effect */
+.go-top-btn-hover:hover {
+  transform: translateY(-5px) rotate(5deg);
+}
+
+/* Dark Mode Toggle Animation */
+.dark-mode-toggle-animate {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.dark-mode-toggle-animate.rotate-scale {
+  transform: rotate(360deg) scale(1.2);
+}
+
+/* Loading Screen Enhancements */
+#loading-screen {
+  transition: opacity 0.7s ease-out, visibility 0.7s ease-out, transform 0.7s ease-out; /* Increased to 0.7s for smoother fade */
+  transform: scale(1); /* Initial state */
+  opacity: 1; /* Ensure it's visible from the start */
+}
+
+#loading-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.05); /* Slightly zoom out as it fades */
+}
+
+/* Bounce animation for loading circles (more fluid) */
+@keyframes bounce-subtle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* More noticeable bounce */
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-subtle 1.2s infinite ease-in-out both; /* Faster, more fluid bounce */
+}
+
+/* Fade-in animation for loading screen content */
+@keyframes fade-in-content {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.loading-content-fade-in {
+  animation: fade-in-content 0.8s ease-out forwards;
+}
+
+/* Typing dots animation */
+@keyframes typing-dots {
+  0%, 20% {
+    content: '';
+  }
+  40% {
+    content: '.';
+  }
+  60% {
+    content: '..';
+  }
+  80%, 100% {
+    content: '...';
+  }
+}
+
+.typing-dots::after {
+  content: '';
+  animation: typing-dots 1.5s infinite steps(1);
+}
+
+/* Hide all body children except loading screen when loading-active is present */
+body.loading-active > *:not(#loading-screen) {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.7s ease-out, visibility 0.7s ease-out; /* Match loading screen transition */
+}
+
+@keyframes spin-border {
+  to {
+    transform: rotate(360deg);
+  }
+}

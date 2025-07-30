@@ -48,3 +48,13 @@ I am always open to discussing new projects, innovative ideas, or collaboration 
 
 -   **LinkedIn:** [linkedin.com/in/bala-vigneshcs](https://www.linkedin.com/in/bala-vigneshcs/)
 -   **Email:** [balavigneshcs@outlook.com](mailto:balavigneshcs@outlook.com)
+
+---
+
+### Development
+
+To rebuild the CSS after making changes to Tailwind classes or configuration, run the following command:
+
+```bash
+npm run build
+```
