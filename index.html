@@ -190,39 +190,107 @@ Site enhanced with fluid interactions, responsive dark mode toggle, and modern a
         <section id="about" data-section="about"
             class="section-animate hidden-animate bg-surface-light  dark:bg-surface-dark py-16 sm:py-28 md:py-40 transition-colors duration-200 ease-in-out">
             <div class="container mx-auto px-4 sm:px-6 md:px-8">
-                <div class="max-w-4xl mx-auto text-center">
-                    <!-- // Updated for typography -->
-                    <!-- // Enhanced: Title is now more engaging and mission-oriented. -->
-                    <h2
-                        class="text-2xl sm:text-3xl md:text-4xl font-semibold text-text-primary-light dark:text-text-primary-dark">
-                        My Mission:
-                        From Data to Impact</h2>
-                    <div class="mt-8 space-y-6 md:space-y-8">
-                        <!-- // Updated for typography -->
-                        <!-- // Enhanced: Content is now specific, confident, and uses active voice. -->
-                        <p
-                            class="text-sm sm:text-base md:text-lg leading-relaxed text-text-secondary-light dark:text-text-secondary-dark text-justify">
-                            As a Machine Learning Engineer, I bridge the gap between complex data and tangible business
-                            outcomes. My focus is on designing, developing, and deploying end-to-end machine learning
-                            pipelines that are not only technically robust but also scalable and impactful. I specialize
-                            in transforming raw data into predictive models that drive efficiency, from automating
-                            legal document analysis to enhancing public safety with real-time computer vision.
-                        </p>
-                        <!-- // Enhanced: Highlights unique strengths and a forward-looking perspective. -->
-                        <p
-                            class="text-sm sm:text-base md:text-lg leading-relaxed text-text-secondary-light dark:text-text-secondary-dark text-justify">
-                            What sets me apart is my commitment to practical application. I don’t just build models; I
-                            build solutions. Whether it’s fine-tuning a BERT model to achieve 92% accuracy in sentiment
-                            analysis or architecting a CNN for near-perfect digit recognition, my goal is always to
-                            deliver measurable results. I am driven by a passion for continuous learning and am eager to
-                            collaborate with forward-thinking teams to tackle the next wave of AI challenges.
-                        </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+
+                    <div class="flex justify-center md:justify-start">
+                        <svg class="w-full max-w-xs sm:max-w-sm md:max-w-md aspect-square 
+              text-primary-light dark:text-primary-dark animate-fade-in drop-shadow-lg" viewBox="0 0 96 96"
+                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" focusable="false">
+
+                            <defs>
+                                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                                    <feGaussianBlur stdDeviation="3" result="blur" />
+                                    <feMerge>
+                                        <feMergeNode in="blur" />
+                                        <feMergeNode in="SourceGraphic" />
+                                    </feMerge>
+                                </filter>
+                            </defs>
+
+                            <!-- Rotating and pulsing halo -->
+                            <g class="slow-spin">
+                                <ellipse cx="48" cy="48" rx="44" ry="44" fill="currentColor" filter="url(#glow)" />
+                            </g>
+
+                            <!-- Static core elements -->
+                            <polygon points="48,12 76,32 76,64 48,84 20,64 20,32" fill="none" stroke="currentColor"
+                                stroke-width="2" opacity="0.2" />
+
+                            <path d="M20 32 L76 64 M20 64 L76 32" stroke="currentColor" stroke-width="1.5"
+                                opacity="0.15" />
+
+                            <path d="M20 64 Q36 48 48 60 Q60 72 76 60" stroke="currentColor" stroke-width="2.5"
+                                fill="none" stroke-linecap="round" opacity="0.35" />
+
+                            <g>
+                                <circle cx="20" cy="32" r="2" fill="currentColor" />
+                                <circle cx="20" cy="64" r="2" fill="currentColor" />
+                                <circle cx="48" cy="84" r="2.2" fill="currentColor" />
+                                <circle cx="76" cy="64" r="2" fill="currentColor" />
+                                <circle cx="76" cy="32" r="2" fill="currentColor" />
+                                <circle cx="48" cy="12" r="2.2" fill="currentColor" />
+                            </g>
+
+                            <g opacity="0.7">
+                                <circle cx="36" cy="48" r="1" fill="currentColor" />
+                                <circle cx="60" cy="48" r="1" fill="currentColor" />
+                                <circle cx="48" cy="60" r="1" fill="currentColor" />
+                            </g>
+
+                            <g opacity="0.5">
+                                <circle cx="86" cy="22" r="0.9" fill="currentColor" />
+                                <circle cx="12" cy="74" r="0.7" fill="currentColor" />
+                                <circle cx="65" cy="19" r="0.7" fill="currentColor" />
+                            </g>
+                        </svg>
                     </div>
-                    <!-- 
-                      SUGGESTION:
-                      Consider adding a "Testimonials" section here to showcase feedback from collaborators or clients.
-                      This can build credibility and provide social proof.
-                    -->
+
+
+
+
+
+                    <div class="text-center md:text-left">
+                        <!-- // Updated for typography -->
+                        <!-- // Enhanced: Title is now more engaging and mission-oriented. -->
+                        <h2
+                            class="text-2xl sm:text-3xl md:text-4xl font-semibold text-text-primary-light dark:text-text-primary-dark">
+                            My Mission:
+                            From Data to Impact</h2>
+                        <div class="mt-8 space-y-8 md:space-y-10">
+                            <!-- // Updated for typography -->
+                            <!-- // Enhanced: Content is now specific, confident, and uses active voice. -->
+                            <p
+                                class="text-sm sm:text-base md:text-lg leading-relaxed text-text-secondary-light dark:text-text-secondary-dark text-justify">
+                                As a Machine Learning Engineer, I bridge the gap between complex data and tangible
+                                business
+                                outcomes. My focus is on designing, developing, and deploying end-to-end machine
+                                learning
+                                pipelines that are not only technically robust but also scalable and impactful. I
+                                specialize
+                                in transforming raw data into predictive models that drive efficiency, from automating
+                                legal document analysis to enhancing public safety with real-time computer vision.
+                            </p>
+                            <!-- // Enhanced: Highlights unique strengths and a forward-looking perspective. -->
+                            <p
+                                class="text-sm sm:text-base md:text-lg leading-relaxed text-text-secondary-light dark:text-text-secondary-dark text-justify">
+                                What sets me apart is my commitment to practical application. I don’t just build models;
+                                I
+                                build solutions. Whether it’s fine-tuning a BERT model to achieve 92% accuracy in
+                                sentiment
+                                analysis or architecting a CNN for near-perfect digit recognition, my goal is always to
+                                deliver measurable results. I am driven by a passion for continuous learning and am
+                                eager to
+                                collaborate with forward-thinking teams to tackle the next wave of AI challenges.
+                            </p>
+                        </div>
+                        <!-- 
+                          SUGGESTION:
+                          Consider adding a "Testimonials" section here to showcase feedback from collaborators or clients.
+                          This can build credibility and provide social proof.
+                        -->
+                    </div>
+
+
                 </div>
             </div>
         </section>
@@ -233,12 +301,9 @@ Site enhanced with fluid interactions, responsive dark mode toggle, and modern a
             class="section-animate hidden-animate py-16 sm:py-28 md:py-40 bg-light-bg dark:bg-dark-bg transition-colors duration-200 ease-in-out">
             <div class="container mx-auto px-4 sm:px-6 md:px-8">
                 <div class="max-w-4xl mx-auto text-center">
-                    <!-- // Enhanced: Title is now more dynamic and action-oriented. -->
                     <h2
                         class="text-2xl sm:text-3xl md:text-4xl font-semibold text-text-primary-light dark:text-text-primary-dark">
-                        My Technical
-                        Toolkit</h2>
-                    <!-- // Enhanced: Opening statement is now confident and specific. -->
+                        My Technical Toolkit</h2>
                     <p
                         class="mt-4 text-sm sm:text-base md:text-lg leading-relaxed text-text-secondary-light dark:text-text-secondary-dark text-justify">
                         I leverage a powerful stack of technologies to build robust, scalable, and intelligent
@@ -246,45 +311,93 @@ Site enhanced with fluid interactions, responsive dark mode toggle, and modern a
                         model deployment.
                     </p>
                 </div>
-                <!-- // Enhanced: Skills are now organized by category for clarity. -->
+
+                <!-- Skill Categories -->
                 <div class="mt-16">
-                    <!-- Category: Machine Learning -->
+                    <!-- Category: Machine Learning & Deep Learning -->
                     <div class="mb-12">
                         <h3
                             class="text-lg sm:text-xl md:text-2xl font-semibold text-center text-text-primary-light dark:text-text-primary-dark mb-8">
                             Machine Learning & Deep Learning</h3>
                         <div
                             class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 md:gap-12 text-center">
-                            <!-- Skill: Python -->
-                            <div class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out"
-                                data-animation-delay="0">
+
+                            <!-- Python -->
+                            <div
+                                class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                                <!-- Python icon -->
+                                <svg class="w-12 h-12 mb-2 text-primary-light dark:text-primary-dark"
+                                    viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                    aria-label="Python Icon" role="img">
+                                    <rect width="48" height="48" rx="12" fill="currentColor" fill-opacity="0.1" />
+                                    <path d="M32 18v-4a6 6 0 0 0-6-6h-4a6 6 0 0 0-6 6v6h16" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" />
+                                    <circle cx="17" cy="14" r="1.5" fill="currentColor" />
+                                    <path d="M16 30v4a6 6 0 0 0 6 6h4a6 6 0 0 0 6-6v-6H16" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" />
+                                    <circle cx="31" cy="34" r="1.5" fill="currentColor" />
+                                </svg>
                                 <h4
                                     class="text-base sm:text-lg font-semibold text-text-primary-light dark:text-text-primary-dark">
-                                    Python</h4>
+                                    Python
+                                </h4>
                             </div>
-                            <!-- Skill: TensorFlow -->
-                            <div class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out"
-                                data-animation-delay="100">
+
+                            <!-- TensorFlow -->
+                            <div
+                                class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                                <!-- Official TensorFlow icon (minimal, monochrome) -->
+                                <svg class="w-12 h-12 mb-2 text-primary-light dark:text-primary-dark" fill="none"
+                                    viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-label="TensorFlow Icon"
+                                    role="img">
+                                    <rect width="48" height="48" rx="12" fill="currentColor" fill-opacity="0.1" />
+                                    <path
+                                        d="M12 16l13-8 13 8M24 24v16M21 22V9.6M27 22V9.6M24 24l-8-5v8.5l6 3.5M24 24l8-5v8.5l-6 3.5"
+                                        stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+
+
                                 <h4
                                     class="text-base sm:text-lg font-semibold text-text-primary-light dark:text-text-primary-dark">
-                                    TensorFlow</h4>
+                                    TensorFlow
+                                </h4>
                             </div>
-                            <!-- Skill: PyTorch -->
-                            <div class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out"
-                                data-animation-delay="200">
+
+                            <!-- PyTorch -->
+                            <div
+                                class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                                <!-- Official PyTorch fire icon (minimal, monochrome) -->
+                                <svg class="w-10 h-10 mb-2 text-primary-light dark:text-primary-dark" fill="none"
+                                    viewBox="0 0 48 48">
+                                    <rect width="48" height="48" rx="12" fill="currentColor" fill-opacity="0.10" />
+                                    <path
+                                        d="M24 10c0 7-4 10-7 15-2 3 0 9 7 9s9-5 7-9-7-10-7-15zm0 22.8a3.8 3.8 0 1 1 0-7.6 3.8 3.8 0 0 1 0 7.6z"
+                                        fill="currentColor" />
+                                </svg>
                                 <h4
                                     class="text-base sm:text-lg font-semibold text-text-primary-light dark:text-text-primary-dark">
-                                    PyTorch</h4>
+                                    PyTorch
+                                </h4>
                             </div>
-                            <!-- Skill: Scikit-learn -->
-                            <div class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out"
-                                data-animation-delay="300">
+
+                            <!-- Scikit-learn -->
+                            <div
+                                class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                                <!-- Official Scikit-learn leaf icon (minimal, monochrome) -->
+                                <svg class="w-10 h-10 mb-2 text-primary-light dark:text-primary-dark"
+                                    viewBox="0 0 48 48" fill="none">
+                                    <ellipse fill="currentColor" rx="10" ry="13" cx="26" cy="27" />
+                                    <ellipse fill="currentColor" opacity="0.35" rx="6.5" ry="8.5" cx="34" cy="15" />
+                                </svg>
                                 <h4
                                     class="text-base sm:text-lg font-semibold text-text-primary-light dark:text-text-primary-dark">
-                                    Scikit-learn</h4>
+                                    Scikit-learn
+                                </h4>
                             </div>
                         </div>
                     </div>
+
                     <!-- Category: Data Science & NLP -->
                     <div class="mb-12">
                         <h3
@@ -292,36 +405,77 @@ Site enhanced with fluid interactions, responsive dark mode toggle, and modern a
                             Data Science & NLP</h3>
                         <div
                             class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 md:gap-12 text-center">
-                            <!-- Skill: Pandas -->
-                            <div class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out"
-                                data-animation-delay="0">
+
+                            <!-- Pandas -->
+                            <div
+                                class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                                <!-- Official Pandas icon (minimal columns) -->
+                                <svg class="w-10 h-10 mb-2 text-primary-light dark:text-primary-dark" fill="none"
+                                    viewBox="0 0 24 24">
+                                    <rect x="4" y="2" width="3" height="20" rx="1" fill="currentColor" />
+                                    <rect x="10.5" y="6" width="3" height="12" rx="1" fill="currentColor"
+                                        opacity="0.55" />
+                                    <rect x="17" y="4" width="3" height="16" rx="1" fill="currentColor"
+                                        opacity="0.35" />
+                                </svg>
                                 <h4
                                     class="text-base sm:text-lg font-semibold text-text-primary-light dark:text-text-primary-dark">
-                                    Pandas</h4>
+                                    Pandas
+                                </h4>
                             </div>
-                            <!-- Skill: NumPy -->
-                            <div class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out"
-                                data-animation-delay="100">
+
+                            <!-- NumPy -->
+                            <div
+                                class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                                <!-- Official NumPy icon (minimal "N" block style) -->
+                                <svg class="w-10 h-10 mb-2 text-primary-light dark:text-primary-dark"
+                                    viewBox="0 0 24 24" fill="none">
+                                    <rect width="24" height="24" rx="5" fill="currentColor" opacity="0.12" />
+                                    <path d="M7 17V7l10 10V7" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" />
+                                </svg>
                                 <h4
                                     class="text-base sm:text-lg font-semibold text-text-primary-light dark:text-text-primary-dark">
-                                    NumPy</h4>
+                                    NumPy
+                                </h4>
                             </div>
-                            <!-- Skill: spaCy -->
-                            <div class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out"
-                                data-animation-delay="200">
+
+                            <!-- spaCy -->
+                            <div
+                                class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                                <!-- Simple leaf (spaCy theme) -->
+                                <svg class="w-10 h-10 mb-2 text-primary-light dark:text-primary-dark"
+                                    viewBox="0 0 48 48" fill="none">
+                                    <ellipse cx="24" cy="27" rx="11" ry="8" fill="currentColor" opacity="0.65" />
+                                    <ellipse cx="33" cy="16" rx="4" ry="3" fill="currentColor" opacity="0.26" />
+                                    <circle cx="29" cy="33" r="1.5" fill="currentColor" />
+                                </svg>
                                 <h4
                                     class="text-base sm:text-lg font-semibold text-text-primary-light dark:text-text-primary-dark">
-                                    spaCy</h4>
+                                    spaCy
+                                </h4>
                             </div>
-                            <!-- Skill: Hugging Face -->
-                            <div class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out"
-                                data-animation-delay="300">
+
+                            <!-- Hugging Face -->
+                            <div
+                                class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                                <!-- Hugging Face: smiley face -->
+                                <svg class="w-10 h-10 mb-2 text-primary-light dark:text-primary-dark"
+                                    viewBox="0 0 48 48" fill="none">
+                                    <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="2" />
+                                    <ellipse cx="17" cy="22" rx="2" ry="2.5" fill="currentColor" />
+                                    <ellipse cx="31" cy="22" rx="2" ry="2.5" fill="currentColor" />
+                                    <path d="M16 28c2 3 14 3 16 0" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg>
                                 <h4
                                     class="text-base sm:text-lg font-semibold text-text-primary-light dark:text-text-primary-dark">
-                                    Hugging Face</h4>
+                                    Hugging Face
+                                </h4>
                             </div>
                         </div>
                     </div>
+
                     <!-- Category: Tools & Platforms -->
                     <div>
                         <h3
@@ -329,39 +483,86 @@ Site enhanced with fluid interactions, responsive dark mode toggle, and modern a
                             Tools & Platforms</h3>
                         <div
                             class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 md:gap-12 text-center">
-                            <!-- Skill: Git & GitHub -->
-                            <div class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out"
-                                data-animation-delay="0">
+
+                            <!-- Git & GitHub (octocat face) -->
+                            <div
+                                class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                                <!-- GitHub octocat face (monochrome, minimal) -->
+                                <svg class="w-12 h-12 mb-2 text-primary-light dark:text-primary-dark" fill="none"
+                                    viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-label="GitHub Icon"
+                                    role="img">
+                                    <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2" />
+                                    <ellipse cx="18" cy="29" rx="2" ry="3" fill="currentColor" />
+                                    <ellipse cx="30" cy="29" rx="2" ry="3" fill="currentColor" />
+                                    <path d="M18 35c3 2.5 9 2.5 12 0" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg>
+
                                 <h4
                                     class="text-base sm:text-lg font-semibold text-text-primary-light dark:text-text-primary-dark">
-                                    Git & GitHub</h4>
+                                    Git & GitHub
+                                </h4>
                             </div>
-                            <!-- Skill: Docker -->
-                            <div class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out"
-                                data-animation-delay="100">
+
+                            <!-- Docker -->
+                            <div
+                                class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                                <!-- Minimal Docker whale -->
+                                <svg class="w-12 h-12 mb-2 text-primary-light dark:text-primary-dark" fill="none"
+                                    viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-label="Docker Icon"
+                                    role="img">
+                                    <rect x="10" y="33" width="28" height="5" rx="1.5" fill="currentColor" />
+                                    <rect x="13" y="25" width="5" height="8" rx="1" fill="currentColor" />
+                                    <rect x="21" y="25" width="5" height="8" rx="1" fill="currentColor" />
+                                    <rect x="29" y="25" width="5" height="8" rx="1" fill="currentColor" />
+                                    <path d="M38 33c4-3.2 6-7.5 6-13" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg>
+
                                 <h4
                                     class="text-base sm:text-lg font-semibold text-text-primary-light dark:text-text-primary-dark">
-                                    Docker</h4>
+                                    Docker
+                                </h4>
                             </div>
-                            <!-- Skill: Streamlit -->
-                            <div class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out"
-                                data-animation-delay="200">
+
+                            <!-- Streamlit -->
+                            <div
+                                class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                                <!-- Streamlit minimal "S" style -->
+                                <svg class="w-10 h-10 mb-2 text-primary-light dark:text-primary-dark" fill="none"
+                                    viewBox="0 0 48 48">
+                                    <rect width="48" height="48" rx="12" fill="currentColor" fill-opacity="0.10" />
+                                    <path
+                                        d="M14 36c2.7 2.7 15.3 2.7 18 0s2-8.6-6-11.2C17.7 22 18 14.6 24 12s14 1.7 9 7.3"
+                                        stroke="currentColor" stroke-width="2.3" fill="none" />
+                                </svg>
                                 <h4
                                     class="text-base sm:text-lg font-semibold text-text-primary-light dark:text-text-primary-dark">
-                                    Streamlit</h4>
+                                    Streamlit
+                                </h4>
                             </div>
-                            <!-- Skill: FastAPI -->
-                            <div class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out"
-                                data-animation-delay="300">
+
+                            <!-- FastAPI -->
+                            <div
+                                class="skill-item group flex flex-col items-center p-4 sm:p-6 bg-surface-light dark:bg-surface-dark rounded-xl shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                                <!-- FastAPI minimal (lightning bolt) -->
+                                <svg class="w-10 h-10 mb-2 text-primary-light dark:text-primary-dark" fill="none"
+                                    viewBox="0 0 32 32">
+                                    <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"
+                                        opacity="0.3" />
+                                    <path d="M13 22l4-7-3 1 5-8-2 7 3-1z" fill="currentColor" />
+                                </svg>
                                 <h4
                                     class="text-base sm:text-lg font-semibold text-text-primary-light dark:text-text-primary-dark">
-                                    FastAPI</h4>
+                                    FastAPI
+                                </h4>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
 
         <!-- Projects Section -->
         <!-- // FIXED: Section background and text colors updated for theme consistency -->
