@@ -211,6 +211,10 @@ footer a:hover {
   transform: rotate(360deg) scale(1.2);
 }
 
+#particle-canvas {
+  z-index: -1;
+}
+
 /* Loading Screen Enhancements */
 #loading-screen {
   transition: opacity 0.7s ease-out, visibility 0.7s ease-out, transform 0.7s ease-out; /* Increased to 0.7s for smoother fade */
@@ -295,5 +299,5 @@ body.loading-active > *:not(#loading-screen) {
 
 .slow-spin {
   transform-origin: 48px 48px;
-  animation: slow-spin 40s linear infinite, gentle-pulse 6s ease-in-out infinite;
+  animation: slow-spin 60s linear infinite, gentle-pulse 8s ease-in-out infinite; /* Increased duration for smoother animation */
 }
