@@ -44,6 +44,10 @@
 
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3rem; /* Adjust this value based on your mobile header's height */
+  }
   body {
     @apply bg-light-bg text-txt-primary-light dark:bg-dark-bg dark:text-txt-primary-dark;
   }
@@ -125,6 +129,23 @@ footer a:hover {
 
 .dark #desktop-nav-container .nav-item.active .nav-dot {
   @apply bg-[var(--color-primary-dark)] scale-125;
+}
+
+/* Mobile Nav Active State */
+.mobile-nav-item.active {
+  @apply text-primary-light dark:text-primary-dark;
+}
+
+.mobile-nav-item.active .group-hover\:bg-primary-light\/10 {
+  @apply bg-primary-light/10;
+}
+
+.mobile-nav-item.active .dark\:group-hover\:bg-primary-dark\/10 {
+  @apply dark:bg-primary-dark/10;
+}
+
+.mobile-nav-item.active span {
+  @apply font-bold;
 }
 
 /* Custom gradient text for Hero title */

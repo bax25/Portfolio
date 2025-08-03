@@ -270,8 +270,8 @@ function initScrollAnimations() {
 
     const observerOptions = {
         root: null, // viewport
-        rootMargin: '0px',
-        threshold: 0.3 // Trigger when 30% of the element is visible
+        rootMargin: '-88px 0px 0px 0px', // Adjusted rootMargin to account for fixed header on mobile
+        threshold: 0.5 // Trigger when 50% of the element is visible, more responsive for mobile
     };
 
     console.log('[Scroll Animation] Initializing scroll animations...');
@@ -467,7 +467,7 @@ function initGoToTopButton() {
  */
 function initSmoothScrolling() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetElement = targetId === '#' ? document.body : document.querySelector(targetId);
@@ -513,7 +513,8 @@ function initNavObserver() {
 
     const observerOptions = {
         root: null,
-        threshold: 0.6, // Changed threshold to 60% as requested
+        rootMargin: '-88px 0px 0px 0px', // Adjusted rootMargin to account for the full height of the fixed mobile header (approx. 88px)
+        threshold: 0.1, // Adjusted threshold to 10% for more responsive active state detection
     };
 
     const sectionObserver = new IntersectionObserver((entries) => {
